@@ -1,0 +1,94 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2cm, bottom=2.5cm]{geometry} % bottom=2.5cm laisse de la place pour le pied de page
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{fancyhdr} % Package pour les en-têtes et pieds de page
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    commentstyle=\color{green!60!black}\itshape,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    frame=single,
+    breaklines=true,
+    showstringspaces=false
+}
+
+%% --- Configuration du pied de page ---
+%\pagestyle{fancy}
+%\fancyhf{} % Efface les en-têtes/pieds de page par défaut
+%\renewcommand{\headrulewidth}{0pt} % Pas de trait en haut
+%\renewcommand{\footrulewidth}{0.4pt} % Un trait fin en bas
+%\lfoot{BCPST2 Lycée Fénelon - Lorenzo Segoni} % Gauche
+%\cfoot{\thepage} % Centre (Numéro de page)
+%\rfoot{2026-2027} % Droite
+% -------------------------------------
+
+% Macro pour créer une zone de réponse
+\newcommand{\carreaux}[1]{
+    \vspace{0.2cm}
+    \noindent
+    \begin{tikzpicture}
+        \draw[step=0.5cm, color=gray!60, thin] (0,0) grid (\linewidth, #1);
+    \end{tikzpicture}
+    \vspace{0.2cm}
+}
+
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Identification \textit{in silico} d'une séquence codante} \\
+    \vspace{0.2cm}
+    \normalsize (Durée : 30 minutes, sur 5 points -- avec un barème sur\dots plus de points !)
+\end{center}
+
+\vspace{0.5cm}
+
+Lors de l'annotation d'un génome, on analyse le brin codant (non transcrit) de l'ADN, orienté de $5^\prime$ vers $3^\prime$. L'identification d'une Séquence Codante (CDS) repose sur la détection d'une Phase Ouverte de Lecture (ORF).
+
+Celle-ci débute par un codon d'initiation \texttt{ATG} et s'achève au premier codon de terminaison rencontré (pour simplifier ici, on se limitera au codon stop \texttt{TAA}) situé dans le même cadre de lecture (c'est-à-dire que le nombre de nucléotides les séparant doit être un multiple de 3).
+
+On travaillera sur la séquence suivante :
+\begin{lstlisting}[numbers=none, frame=none]
+brin_codant = "GGCATGGTCAGTCGCTACTAATGC"
+\end{lstlisting}
+
+\subsection*{Question 1 : Repérage d'un codon}
+Écrivez une fonction \texttt{cherche\_codon(adn, codon)} qui parcourt la chaîne de caractères \texttt{adn} et renvoie l'indice de la première occurrence du codon cherché. Si le codon n'est pas présent, la fonction devra renvoyer \texttt{False}.
+
+\noindent \emph{NB : cette question sur 2 points est identique (à l'habillage près) à un exercice vu en TP.}
+
+\carreaux{5.5}
+
+\subsection*{Question 2 : Application}
+En utilisant la fonction définie à la question précédente, écrivez les deux commandes Python permettant de trouver respectivement l'indice du codon start (\texttt{ATG}) et l'indice du codon stop (\texttt{TAA}) dans la séquence \texttt{brin\_codant}. Précisez également les valeurs numériques qui seront renvoyées par l'exécution de ces deux commandes.
+
+\carreaux{3}
+
+\subsection*{Question 3 : Extraction de la CDS}
+En utilisant les fonctions précédentes et le "slicing" de chaînes, écrivez une fonction \texttt{extraction\_cds(adn)} qui renvoie la séquence d'ADN de l'ORF complète, incluant le codon start et le codon stop.
+
+\carreaux{6}
+
+\subsection*{Question 4 : Application de l'extraction}
+Écrivez la commande Python permettant d'extraire la CDS de la séquence \texttt{brin\_codant} en utilisant la fonction définie à la question 3. Précisez la chaîne de caractères exacte qui sera renvoyée par cette commande.
+
+\carreaux{3}
+
+\subsection*{Question 5 : Mutation (Question difficile, en bonus !)}
+On remarque qu'une mutation classique de cet ADN prend le codon \texttt{CGC} et le transforme en \texttt{CAC}. 
+Faites la fonction \texttt{mutation(cds, codon, changement)} qui cherche le premier codon correspondant et le remplace par son changement (une seule fois). 
+\textbf{ATTENTION :} Il faut respecter le cadre de lecture (la règle des 3). Le remplacement ne doit avoir lieu que si le codon à muter est en phase (son indice dans la séquence doit être un multiple de 3).
+
+\carreaux{7}
+
+\end{document}
