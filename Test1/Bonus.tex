@@ -1,1 +1,25 @@
+\section{Approximation de $\pi$}
 
+On prend la suite
+
+$$
+\begin{cases}
+u(0) &= 1 \\
+v(0) &= 2 \\
+u(k+1) &= \frac{u(k)v(k)}{2} \\
+u(k+1) &= \sqrt{u(k+1) v(k)} \\
+\end{cases}
+$$
+
+On admet que $v(k) \xrightarrow{k \to \infty} \frac{\sqrt{27}}{\pi}$.
+
+\subsection*{Question 1}
+ Ecrire un programme renvoyant pour un entier $N$ l'appoximation du nombre $\pi$ obtenue à partir de la valeur de $v(N)$.
+ 
+\subsection*{Question 2}
+
+Ecrire uun programme renvoyant pour uin réel $\epsilon$ strictement positif l'approximation de $\pi$ obtenue à partir de la valeur $v(n_0)$, où $n_0$ est le premier entier tel que:
+
+$$
+|\frac{u(n_0) - v(n_0)}{u(n_0) + v(n_0)}|< \epsilon
+$$
