@@ -5,8 +5,12 @@
 # Question 3
 # Question 4
 
+print(True + True + False + True)
+# 1 + 1 + 0 + 1 = 3
+print(True * True * False * True)
+# 1 * 1 * 0 * 1 = 0
+
 ## Exercice 2
-# Question 3
 # Question 4
 # Question 5
 # Question 6
