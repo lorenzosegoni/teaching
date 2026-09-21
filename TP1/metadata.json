@@ -4,6 +4,6 @@
   "resume": "C",
   "fichiers": [
     {"nom": "TP", "fichier": "TP1.pdf"},
-    {"nom": "Correction", "fichier": "TP1.pdf"}
+    {"nom": "Correction", "fichier": "TP1Correction.py"}
   ]
 }
