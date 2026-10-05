@@ -1,0 +1,9 @@
+{
+  "nom": "Test1",
+  "semestre": "1",
+  "resume": "Évaluation courte de bio-informatique portant sur l'analyse de séquences d'ADN en Python : recherche de motifs sans méthode native, identification de phase ouverte de lecture (ORF/CDS), découpage par tranches (slicing) et simulation d'une mutation ponctuelle respectant le cadre de lecture.",
+  "fichiers": [
+    {"nom": "Test1", "fichier": "Test1.pdf"},
+    {"nom": "Correction", "fichier": "Test1_Correction.pdf"}
+  ]
+}
