@@ -46,7 +46,7 @@ print( True * True * False * True )
 # Explication : True = 1 et False = 0
 
 
-### Exercice 3
+### Exercice 2
 
 ## Question 4
 
@@ -104,59 +104,19 @@ def remplace_UN_car(chaine, carac, remplacant) :
 
 ## Question 7
 
-'''
-Principe :
-On strocke le nombre de lettre du mot recherché puis, à l'aide du slicing, on fait glisser une fenêtre de cette taille sur la (grande) chaîne. Si à un moment cette fenêtre
-
-Notons qu'on a donc besoin de boucler sur les indices des caractères de la chaîne, et non sur leurs valeurs.
-'''
+# On utilise bien le slicing
 
 def es_tu_la(chaine, mot) :
-
-    # On commence par traiter le cas trivial :
     if mot == '' :
-        return True
-
-    # En effet, si le mot à chercher est vide, la fonction devrait toujours renvoyer True. Même si la chaie est vide ! Or ce qui suit renverrait False avec uen chaîen vide... Autant commencer par traiter le cas trivial à part !
-
-    # Sinon, on applique l'idée :
-
-    longueur_mot = len(mot)
-
-
-
-    # on va faire boucler i de 0 jusqu'à len(chaine) - len(mot)
-    # Ca ne sert à rien de regarder les tous derniers caractères
-    # formant une chaine trop petite pour être égale à 'mot'
-
-    # Attention, ne pas oublier le "+ 1" dans le range
-
-    for i in range (0, len(chaine) - len (mot) + 1) :
-        if chaine[ i : i + len(mot) ] == mot :
+        return True # Cas trivial
+    for i in range (0, len(chaine) - len (mot) + 1) : #Attention Range pour eviter erreur
+        if chaine[ i : i + len(mot) ] == mot : #Attention bien la longuer!
             return True
-            # Si on trouve une occurrence du mot, on peut (et doit)  renvoyer True. Ce return est donc dans la boucle.
-
     return False
-
-    # Il faut avoir éclusé toutes les possibilités (sans trouver le mot) pour renvoyer ce False : ce return est donc APRES la boucle
-
-    # Il faut bien comprendre cette dissymétrie entre les return
 
 ## Question 8
 
-# Version 1 : On utilise le mécanisme d'indexation à l'envers des caractères d'une chaîne :
-
-'''
-machaine[-1] est le dernier caractère, machaine[-2] l'avant-dernier, etc.
-Aisni, pour i>= 0, machaine [i] est le i+1 ° caractère en partant de la gauche
-et machaine [-i-1] est le i+1 ° caractère en partant de la droite (le symétrique du précédent donc)
-
-On doit donc vérifier si pour tout i dans [0, len(machaine) -1 ], on a machaine [i] = machaine [-i-1]
-Dès que c'est faux, on peut s'arrêter et renvoyer False
-Si ce n'est jamais faux , c'est que 'machaine' est un palaindrome, et on peut renvoyer True
-
-Comprenez-vous bien pourquoi le 'return False' est DANS la boucle alors que le 'return True' est APRES la boucle ?
-'''
+# Version 1 : On utilise le mécanisme d'indexation à l'envers :
 
 def estunpalindrome(machaine) :
     n = len (machaine)
@@ -166,9 +126,7 @@ def estunpalindrome(machaine) :
 
     return True
 
-# Version 2 : Pareil, mais en faisant une boucle deux fois plus petite : il suffit de regarder les indices jusqu'à n // 2 (les vérifications suivantes sont redondantes)
-
-# Notez bien l'usage de '//' et non de '/'. Clair ?
+# Version 2 : Version 1 mais optimisé
 
 def estunpalindrome(machaine) :
     n = len (machaine)
@@ -178,9 +136,7 @@ def estunpalindrome(machaine) :
 
     return True
 
-# Version 3 : EN utilisant le slicing de manière subtile, grâce au fait qu'on peut spécifier un pas lorsqu'on "slice" (voir le poly) et ce pas peut être négatif, entraînant la lecture de la chaîen à rebours.
-
-# En particulier, la syntaxe machaine [ : : -1] renvoie une copie de ma_chaine à l'envers !
+# Version 3 : avec le slicing
 
 # Exemple :
 '''
@@ -193,12 +149,9 @@ def estunpalindrome(machaine) :
 def estunpalindrome(machaine) :
     return machaine == machaine [ : : -1]
 
-
 ## Question 9
 
-# C'est l'occasion d'utiliser la 'méthode' .upper() des chaînes de caractères qui transforme une chaîen en la même, mais avec toutes lettres en majuscules
-
-# Voir le paragraphe 4.4.4 du cours
+# Ici on utilise la fonction .upper()
 
 # Exemple :
 '''
@@ -206,66 +159,8 @@ def estunpalindrome(machaine) :
 'BLABLA'
 '''
 
-# On va donc appliquer la fonction de la question précédente, mais en commençant par mettre toutes les lettres en majuscules :
-
 def estunpalindrome_sans_maj(machaine) :
     return estunpalindrome(machaine.upper())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### Exercice 3 
 
@@ -292,7 +187,6 @@ def listeDeTermes(n) :
     for k in range (n+1) :
         reponse.append(unTerme(k))
     return reponse
-
 
 def listeDeTermes_Version_2(n) :
     reponse =[2]
