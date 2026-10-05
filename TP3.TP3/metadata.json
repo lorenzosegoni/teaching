@@ -1,0 +1,9 @@
+{
+  "nom": "TP3",
+  "semestre": "1",
+  "resume": "Simulation probabiliste et variables aléatoires discrètes en Python : méthode de Monte-Carlo, tirages sans remise, lois usuelles (Bernoulli, binomiale, géométrique, Poisson, lois finies), analyse empirique (moyenne, variance, fonctions de répartition avec matplotlib), problème du Chi-Fou-Mi et problème historique des partis résolu par récursivité et mémoïsation.",
+  "fichiers": [
+    {"nom": "TP", "fichier": "TP3.pdf"},
+    {"nom": "Correction", "fichier": "TP3Correction.py"}
+  ]
+}
