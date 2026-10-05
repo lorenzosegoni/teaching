@@ -1,7 +1,7 @@
 {
   "nom": "Fiche_Revision_Bases_Python",
   "semestre": "1",
-  "resume": "Fiche memento des bases de Python pour BCPST 2 (opérateurs, types élémentaires, découpage de chaînes, fonctions et récursivité, structures de contrôle, modules random et matplotlib). Attention : document incomplet (sections Liste, Dictionnaire, Math et Numpy laissées vides sans contenu).",
+  "resume": "Fiche memento des bases de Python pour BCPST 2 (opérateurs, types élémentaires, découpage de chaînes, fonctions et récursivité, structures de contrôle, modules random et matplotlib). Attention : document incomplet.",
   "fichiers": [
     {"nom": "Fiche", "fichier": "main.pdf"}
   ]
