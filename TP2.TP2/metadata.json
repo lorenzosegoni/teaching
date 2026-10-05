@@ -1,0 +1,9 @@
+{
+  "nom": "TP2",
+  "semestre": "1",
+  "resume": "Approfondissement des boucles `for` (parcours par éléments ou indices) et `while` : recherche d'extrema et d'indices, nombres triangulaires et palindromes, traitement de chaînes sans méthodes natives, méthode de dichotomie, nombres parfaits, et stratégies d'arrêt précoce (break, return).",
+  "fichiers": [
+    {"nom": "TP", "fichier": "TP2.pdf"},
+    {"nom": "Correction", "fichier": "TP2Correction.py"}
+  ]
+}
