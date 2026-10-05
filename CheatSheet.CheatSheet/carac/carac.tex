@@ -1,0 +1,31 @@
+\section{Chaînes de Caractères (str)}
+En Python, une chaîne de caractères ne peut pas être modifiée sur place. Toutes les méthodes ci-dessous ne changent pas la chaîne d'origine, elles \textit{renvoient une nouvelle chaîne} modifiée (qu'il faut souvent stocker dans une variable).
+
+\subsubsection{Opérations Fondamentales et Longueur}
+
+\begin{itemize}
+\item \texttt{len(chaine)} : Longueur,Fonction native (non-méthode) renvoyant le nombre total de caractères (int).
+\item \texttt{chaine1 + chaine2} : Concaténation,Fusionne deux chaînes bout à bout.
+\item \texttt{chaine * entier} : Répétition,Répète la chaîne le nombre de fois spécifié.
+\end{itemize}
+
+\subsubsection{Indexation et Slicing}
+
+\begin{itemize}
+
+\item \texttt{chaine[index]} : Extrait le caractère à la position précise. (Un index négatif comme -1 cible le dernier caractère).
+\item \texttt{chaine[début:fin]} : Extrait de l'index début (inclus) jusqu'à l'index fin (exclu).
+\item \texttt{chaine[début:fin:pas]} : Extrait du début à la fin en sautant des caractères selon le pas.
+\end{itemize}
+
+Mettre un vide à debut va prendre par defaut 0, pour la fin c'est le dernier element et pour pas c'est 1.
+
+\subsubsection{Modification de la Casse}
+
+\begin{itemize}
+\item \texttt{chaine.upper()} : Convertit tous les caractères en majuscules.
+\item \texttt{chaine.lower()} : Convertit tous les caractères en minuscules.
+\end{itemize}
+			
+				
+		

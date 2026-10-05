@@ -1,0 +1,66 @@
+\subsection{\texttt{Numpy}}
+
+## 🐍 Cheat Sheet : NumPy (`numpy.ndarray`)
+
+> **Convention universelle :** La bibliothèque est toujours importée via `import numpy as np`.
+> Dans ce document, `[tableau]` désigne un objet `numpy.ndarray` et `[shape]` désigne un tuple décrivant les dimensions, par exemple `(lignes, colonnes)`.
+
+### 1. Création de Tableaux
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `np.array([liste_ou_tuple])` | Convertit une séquence Python standard en tableau NumPy. |
+| `np.arange([début], [fin], [pas])` | Crée un tableau 1D avec une séquence espacée régulièrement (borne de fin **exclue**). |
+| `np.linspace([début], [fin], [nb_valeurs])` | Crée un tableau 1D de `[nb_valeurs]` uniformément réparties (borne de fin **incluse**). |
+| `np.zeros([shape])` | Crée un tableau rempli de zéros. |
+| `np.ones([shape])` | Crée un tableau rempli de uns. |
+| `np.random.rand([d0], [d1], ...)` | Crée un tableau avec des valeurs aléatoires (distribution uniforme entre 0 et 1). |
+
+### 2. Attributs Principaux (Sans parenthèses)
+
+Ces éléments décrivent la structure du tableau et ne sont pas des méthodes.
+
+| Attribut abstrait | Information renvoyée |
+| --- | --- |
+| `[tableau].shape` | Tuple représentant la taille du tableau dans chaque dimension. |
+| `[tableau].ndim` | Nombre de dimensions (`int` : 1 pour vecteur, 2 pour matrice, etc.). |
+| `[tableau].size` | Nombre total d'éléments dans le tableau (`int`). |
+| `[tableau].dtype` | Type de données stockées (ex: `int32`, `float64`). Tous les éléments ont le même type. |
+
+### 3. Restructuration et Manipulation
+
+| Méthode abstraite | Action |
+| --- | --- |
+| `[tableau].reshape([nouvelles_dimensions])` | Renvoie une vue du tableau avec de nouvelles dimensions (le nombre total d'éléments doit rester identique). |
+| `[tableau].flatten()` | Renvoie une copie du tableau aplati en une seule dimension (1D). |
+| `[tableau].transpose()` ou `[tableau].T` | Permute les dimensions (transposée d'une matrice). |
+| `np.concatenate(([tab1], [tab2]), axis=[n])` | Fusionne une séquence de tableaux le long d'un axe existant. |
+| `np.vstack(([tab1], [tab2]))` | Empile les tableaux verticalement (lignes). |
+| `np.hstack(([tab1], [tab2]))` | Empile les tableaux horizontalement (colonnes). |
+
+### 4. Opérations Mathématiques et Statistiques
+
+> **Note sur `axis` :** La majorité de ces méthodes acceptent l'argument optionnel `axis`.
+> * Sans `axis` : l'opération s'applique à **tous** les éléments du tableau.
+> * `axis=0` : s'applique le long des colonnes (verticalement).
+> * `axis=1` : s'applique le long des lignes (horizontalement).
+> 
+> 
+
+| Méthode abstraite | Action |
+| --- | --- |
+| `[tableau].sum(axis=[n])` | Somme des éléments. |
+| `[tableau].mean(axis=[n])` | Moyenne des éléments. |
+| `[tableau].std(axis=[n])` | Écart-type (Standard deviation). |
+| `[tableau].max()` / `[tableau].min()` | Valeur maximale / minimale. |
+| `[tableau].argmax()` / `[tableau].argmin()` | Renvoie **l'index** de la valeur maximale / minimale. |
+| `np.dot([tab1], [tab2])` ou `[tab1] @ [tab2]` | Produit matriciel (produit scalaire). |
+
+### 5. Indexation Avancée et Masques Booléens
+
+Contrairement aux listes Python, NumPy permet de filtrer des données en utilisant directement des conditions (masques).
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `[tableau][[condition_booléenne]]` | Renvoie un nouveau tableau (1D) contenant uniquement les éléments pour lesquels la condition est `True`. |
+| `[tableau][[lignes], [colonnes]]` | Indexation d'une matrice 2D (extraction d'un élément ou d'un sous-tableau via slicing). |

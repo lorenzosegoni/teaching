@@ -1,0 +1,48 @@
+\section{Dictionnaire}
+
+## 🐍 Cheat Sheet : Les Dictionnaires (`dict`)
+
+> **Règle d'or : Clé / Valeur**
+> Un dictionnaire ne fonctionne pas avec des index numériques (comme les listes), mais avec un système d'association. Il associe une **clé** (qui doit être unique et immuable, souvent une `str` ou un `int`) à une **valeur** (qui peut être de n'importe quel type). Les dictionnaires sont modifiables (mutables).
+
+### 1. Opérations Fondamentales
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `len([dict])` | Renvoie le nombre total de paires clé/valeur (`int`). |
+| `[dict][[clé]]` | Accède (lit) la valeur associée à cette clé précise. **(Provoque une erreur si la clé n'existe pas).** |
+| `[dict][[clé]] = [valeur]` | **Ajout / Modification** : Si la clé existe, met à jour sa valeur. Si elle n'existe pas, crée une nouvelle paire clé/valeur. |
+| `[clé] in [dict]` | Opérateur d'appartenance : renvoie `True` si la **clé** (et non la valeur) existe dans le dictionnaire. |
+
+### 2. Accès Sécurisé aux Valeurs
+
+| Méthode abstraite | Action |
+| --- | --- |
+| `[dict].get([clé])` | Renvoie la valeur associée à la clé. Si la clé n'existe pas, renvoie `None` (sans faire planter le programme). |
+| `[dict].get([clé], [défaut])` | Renvoie la valeur associée à la clé. Si la clé n'existe pas, renvoie la valeur de `[défaut]` spécifiée. |
+
+### 3. Vues et Itérations (Très utile pour les boucles `for`)
+
+Ces méthodes renvoient des objets itérables dynamiques ("vues") représentant le contenu du dictionnaire.
+
+| Méthode abstraite | Action |
+| --- | --- |
+| `[dict].keys()` | Renvoie une vue contenant uniquement toutes les **clés**. |
+| `[dict].values()` | Renvoie une vue contenant uniquement toutes les **valeurs**. |
+| `[dict].items()` | Renvoie une vue contenant toutes les paires sous forme de tuples : `(clé, valeur)`. |
+
+### 4. Suppression
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `del [dict][[clé]]` | Instruction native qui supprime définitivement la paire associée à cette clé. (Erreur si clé absente). |
+| `[dict].pop([clé])` | Supprime la paire associée à cette clé **et renvoie** la valeur supprimée. |
+| `[dict].pop([clé], [défaut])` | Identique à `.pop()`, mais renvoie la valeur `[défaut]` si la clé n'existe pas (évite l'erreur). |
+| `[dict].popitem()` | Supprime et renvoie la dernière paire insérée dans le dictionnaire sous forme de tuple `(clé, valeur)`. |
+| `[dict].clear()` | Supprime la totalité des paires (le dictionnaire devient `{}`). |
+
+### 5. Fusion et Mise à jour massive
+
+| Méthode abstraite | Action |
+| --- | --- |
+| `[dict].update([autre_dict])` | Modifie le dictionnaire sur place en y ajoutant toutes les paires de `[autre_dict]`. Si des clés sont communes, les valeurs sont écrasées par celles du nouveau dictionnaire. |

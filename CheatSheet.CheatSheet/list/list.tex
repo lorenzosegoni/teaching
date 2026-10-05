@@ -1,0 +1,49 @@
+\section{Liste}
+
+## 🐍 Cheat Sheet : Les Listes (`list`)
+
+> **Règle d'or : La Mutabilité**
+> Contrairement aux chaînes de caractères, les listes sont **mutables** (modifiables). La grande majorité de leurs méthodes (comme `append`, `sort`, `reverse`) modifient la liste originale **sur place** et ne renvoient rien (`None`).
+
+### 1. Opérations Fondamentales et Extraction (Slicing)
+
+Les listes partagent la même logique d'indexation (base 0) que les chaînes de caractères.
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `len([liste])` | Fonction native renvoyant le nombre total d'éléments (`int`). |
+| `[liste1] + [liste2]` | Crée une **nouvelle liste** en fusionnant les deux. |
+| `[liste] * [entier]` | Crée une **nouvelle liste** en répétant les éléments. |
+| `[liste][index]` | Lit **ou modifie** l'élément à la position spécifiée. |
+| `[liste][début:fin:pas]` | *Slicing* : Extrait une sous-liste (du `début` inclus à la `fin` exclue). |
+| `[élément] in [liste]` | Opérateur d'appartenance : renvoie `True` si l'élément est dans la liste. |
+
+### 2. Ajout d'éléments (Modification sur place)
+
+| Méthode abstraite | Action |
+| --- | --- |
+| `[liste].append([élément])` | Ajoute un seul élément à la toute fin de la liste. |
+| `[liste].insert([index], [élément])` | Insère l'élément à la position spécifiée (décale les suivants vers la droite). |
+| `[liste].extend([itérable])` | Ajoute **tous** les éléments d'une autre liste (ou séquence) à la fin. |
+
+### 3. Suppression d'éléments (Modification sur place)
+
+| Méthode abstraite | Action |
+| --- | --- |
+| `[liste].remove([valeur])` | Cherche et supprime la **première occurrence** de cette valeur exacte. (Provoque une erreur si introuvable). |
+| `[liste].pop([index])` | Supprime **et renvoie** l'élément situé à cet index précis. Si l'index est omis `()`, supprime et renvoie le dernier élément. |
+| `[liste].clear()` | Supprime la totalité des éléments (la liste devient `[]`). |
+
+### 4. Recherche et Comptage
+
+| Méthode abstraite | Action (Renvoie un `int`) |
+| --- | --- |
+| `[liste].index([valeur])` | Renvoie l'index (la position) de la première occurrence de cette valeur. |
+| `[liste].count([valeur])` | Renvoie le nombre total de fois où cette valeur apparaît dans la liste. |
+
+### 5. Tri et Réorganisation (Modification sur place)
+
+| Méthode abstraite | Action |
+| --- | --- |
+| `[liste].sort()` | Trie les éléments par ordre croissant (ou alphabétique). Modifie la liste d'origine. Accepte l'argument optionnel `reverse=True` pour un tri décroissant. |
+| `[liste].reverse()` | Inverse simplement l'ordre actuel des éléments, sans les trier. |

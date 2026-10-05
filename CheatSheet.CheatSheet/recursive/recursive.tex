@@ -1,0 +1,26 @@
+\subsection{Fonctions Récursives}
+
+Une fonction récursive est une fonction qui \textit{s'appelle elle-même} à l'intérieur de son propre bloc d'instructions.
+
+\begin{verbatim}
+def f_r([parametres]):
+  # 1. Condition d'arrêt
+  if [condition_de_fin_atteinte]:
+     return [valeur_finale]
+    
+  # 2. Appel Récursif 
+  else:
+    # Modification possible
+    [new_p] = [modification]
+        
+# La fonction s'invoque elle-même
+    return [operation] + f_r([new_p])
+\end{verbatim}
+
+Les composants indispensables sont :
+
+\begin{itemize}
+\item Condition d'arrêt : Évalue si le problème est suffisamment réduit pour être résolu directement sans nouvel appel
+\item Modification d'état : Les arguments passés à l'appel suivant doivent systématiquement se rapprocher de la condition d'arrêt
+\item Le mot-clé \texttt{return} : Permet de faire remonter le résultat d'un appel au précédent lors du "dépilage".
+\end{itemize}

@@ -1,0 +1,56 @@
+\subsection{\texttt{Time}}
+
+## 🐍 Cheat Sheet : Module `time`
+
+> **Convention :** Ce module natif de Python gère le temps, principalement en interagissant avec l'horloge du système d'exploitation. Il doit être importé via `import time`.
+> **Concepts clés :** Le temps y est généralement manipulé sous deux formes :
+> 1. Le **Timestamp** (ou Epoch) : un nombre décimal (`float`) représentant les secondes écoulées depuis le 1er janvier 1970.
+> 2. Le **`struct_time`** : un objet structuré détaillant chaque composante (année, mois, jour, heure, minute, etc.).
+> 
+> 
+
+### 1. Horloge et Suspension de l'exécution
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `time.time()` | Renvoie le temps actuel sous forme de **Timestamp** absolu (`float`). |
+| `time.sleep([secondes])` | Met le programme en pause (suspend l'exécution) pendant la durée spécifiée (`int` ou `float`). |
+
+### 2. Conversions (Timestamp $\leftrightarrow$ `struct_time`)
+
+Si le paramètre optionnel `[timestamp]` est omis dans les fonctions ci-dessous, elles utilisent automatiquement le temps actuel (`time.time()`).
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `time.gmtime([timestamp])` | Convertit un Timestamp en objet `struct_time` basé sur le temps universel coordonné (**UTC**). |
+| `time.localtime([timestamp])` | Convertit un Timestamp en objet `struct_time` basé sur le **fuseau horaire local** de la machine. |
+| `time.mktime([struct_time])` | Opération inverse. Convertit un objet `struct_time` local en **Timestamp** (`float`). |
+
+### 3. Formatage (Temps $\leftrightarrow$ Chaîne de caractères)
+
+Ces fonctions permettent de traduire le temps en texte lisible, ou de parser du texte pour en faire un objet temporel.
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `time.strftime([format], [struct_time])` | Convertit un objet `struct_time` en chaîne de caractères (`str`) en appliquant un modèle de formatage (ex: `[format]` dicte l'ordre des jours, mois, etc.). |
+| `time.strptime([chaîne], [format])` | Analyse une chaîne de caractères selon le `[format]` fourni et renvoie l'objet `struct_time` correspondant. |
+| `time.asctime([struct_time])` | Convertit un objet `struct_time` en une chaîne de caractères standardisée (format fixe préétabli). |
+| `time.ctime([timestamp])` | Raccourci. Convertit directement un Timestamp en une chaîne de caractères standardisée. |
+
+### 4. Directives de Formatage Courantes (pour `strftime` / `strptime`)
+
+| Directive abstraite | Composante représentée |
+| --- | --- |
+| `%Y` / `%y` | Année (sur 4 chiffres / sur 2 chiffres). |
+| `%m` / `%B` | Mois (en nombre de 01 à 12 / en toutes lettres). |
+| `%d` | Jour du mois (de 01 à 31). |
+| `%H` / `%M` / `%S` | Heure (format 24h) / Minute / Seconde. |
+
+### 5. Chronométrage et Mesure de Performance
+
+Ces fonctions sont utilisées pour mesurer le temps d'exécution d'un script ou d'une fonction, car elles offrent une précision supérieure à `time.time()`.
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `time.perf_counter()` | Renvoie un Timestamp de très haute précision. Idéal pour calculer la différence exacte de temps entre deux points du code (mesure de la durée d'exécution). |
+| `time.process_time()` | Renvoie le temps cumulé passé par le processeur (CPU) à exécuter le processus actuel (exclut le temps passé en pause lors d'un `time.sleep()`). |

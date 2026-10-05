@@ -1,0 +1,13 @@
+\subsection{\texttt{random}}
+
+Ce module doit être importé via \texttt{import random}. Il sert à générer des nombres pseudo-aléatoires. La comande qui doit être toujours mise (pour la reproductibilité) est \texttt{random.seed([valeur])}. 
+
+Les comandes bien à savoir sont :
+
+\begin{itemize}
+\item \texttt{random.random()} : Renvoie un nombre décimal (\textit{float}) aléatoire compris dans l'intervalle $[0,1[$.
+\item \texttt{random.uniform([min], [max])} : Renvoie un nombre décimal (\textit{float}) aléatoire compris entre $[\min, \max]$
+\item \texttt{random.randint([min], [max])} :  Renvoie un nombre entier (\textit{int}) aléatoire compris entre $[\min, \max]$
+\item \texttt{random.choice([séquence])} : Renvoie un seul élément choisi au hasard dans la séquence non vide.
+\item \texttt{random.sample([séquence], k=[nombre])} : Renvoie une liste de éléments de la séquence tirés au hasard sans remise.
+\end{itemize}

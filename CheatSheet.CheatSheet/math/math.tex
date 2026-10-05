@@ -1,0 +1,70 @@
+\subsection{\texttt{Math}}
+
+## 🐍 Cheat Sheet : Module `math`
+
+> **Convention :** Ce module natif de Python permet d'effectuer des opérations mathématiques avancées. Il doit être importé via `import math`. Sauf exception, ces fonctions renvoient systématiquement des nombres décimaux (`float`).
+
+### 1. Constantes Mathématiques (Sans parenthèses)
+
+| Syntaxe abstraite | Représentation |
+| --- | --- |
+| `math.pi` | Rapport de la circonférence d'un cercle à son diamètre ($\pi$). |
+| `math.e` | Base du logarithme népérien ($e$). |
+| `math.inf` | Infini positif. (L'infini négatif s'écrit `-math.inf`). |
+| `math.nan` | *Not a Number* (Valeur non numérique, souvent issue d'un calcul impossible). |
+
+### 2. Arrondis et Troncatures
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `math.ceil([nombre])` | Arrondi à l'entier supérieur (plafond). |
+| `math.floor([nombre])` | Arrondi à l'entier inférieur (plancher). |
+| `math.trunc([nombre])` | Troncature (supprime toute la partie décimale pour ne conserver que l'entier). |
+
+### 3. Opérations Algébriques et Combinatoires
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `math.fabs([nombre])` | Valeur absolue (équivalent à la fonction native `abs()`, mais renvoie toujours un `float`). |
+| `math.factorial([entier])` | Factorielle de l'entier ($n!$). |
+| `math.gcd([entier_a], [entier_b])` | Plus Grand Commun Diviseur (PGCD). |
+| `math.lcm([entier_a], [entier_b])` | Plus Petit Commun Multiple (PPCM). |
+| `math.comb([n], [k])` | Nombre de combinaisons (choisir $k$ éléments parmi $n$ sans ordre). |
+| `math.perm([n], [k])` | Nombre d'arrangements (choisir $k$ éléments parmi $n$ avec ordre). |
+
+### 4. Puissances, Racines et Logarithmes
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `math.pow([base], [exposant])` | Élève la base à la puissance donnée (similaire à `**` mais renvoie un `float`). |
+| `math.sqrt([nombre])` | Racine carrée. |
+| `math.exp([nombre])` | Exponentielle ($e$ élevé à la puissance du nombre). |
+| `math.log([nombre])` | Logarithme naturel / népérien (en base $e$). |
+| `math.log([nombre], [base])` | Logarithme dans la base spécifiée. |
+| `math.log10([nombre])` | Logarithme en base 10. |
+| `math.log2([nombre])` | Logarithme en base 2. |
+
+### 5. Trigonométrie et Conversions d'Angles
+
+> **Attention :** Toutes les fonctions trigonométriques du module exigent ou renvoient des angles exprimés en **radians** (et non en degrés).
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `math.radians([degrés])` | Convertit une valeur de degrés vers radians. |
+| `math.degrees([radians])` | Convertit une valeur de radians vers degrés. |
+| `math.sin([angle])` | Sinus de l'angle. |
+| `math.cos([angle])` | Cosinus de l'angle. |
+| `math.tan([angle])` | Tangente de l'angle. |
+| `math.asin([valeur])` | Arc sinus (renvoie l'angle). |
+| `math.acos([valeur])` | Arc cosinus (renvoie l'angle). |
+| `math.atan([valeur])` | Arc tangente (renvoie l'angle). |
+
+### 6. Validations (Renvoient un booléen `True` ou `False`)
+
+Ces fonctions sont cruciales pour vérifier l'intégrité des résultats mathématiques, notamment les flottants.
+
+| Syntaxe abstraite | Action |
+| --- | --- |
+| `math.isinf([valeur])` | Vérifie si la valeur est un infini (positif ou négatif). |
+| `math.isnan([valeur])` | Vérifie si la valeur est `NaN` (*Not a Number*). |
+| `math.isclose([val_A], [val_B])` | Vérifie si deux nombres décimaux sont approximativement égaux (outil indispensable pour comparer des `float` compte tenu de leurs légères imprécisions de calcul). |

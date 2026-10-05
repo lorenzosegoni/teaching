@@ -1,0 +1,45 @@
+\section{Les Boucles}
+
+\subsection{Boucle while (Tant que)}
+
+Conçue pour itérer tant qu'une condition reste vraie. Le nombre de répétitions \textbf{n'est pas connu à l'avance}.
+
+\begin{verbatim}
+while [condition]:
+    # Bloc exécuté tant que True
+    [instructions]
+    [mise_à_jour_de_la_condition] 
+\end{verbatim}
+
+Il est impératif de modifier une variable intervenant dans la condition à l'intérieur du bloc, sinon la boucle tournera à l'infini!
+
+\subsection{Boucle for (Pour chaque)}
+
+Conçue pour itérer sur une \textbf{séquence connue} (liste, chaîne de caractères, dictionnaire, etc.). La boucle s'arrête automatiquement à la fin de la séquence.
+
+\begin{verbatim}
+for [var_temporaire] in [séquence]:
+# Bloc exécuté une fois par élément
+    [instructions_avec_var_temporaire]
+\end{verbatim}
+
+À chaque tour, la var\_temporaire prend automatiquement la valeur de l'élément suivant dans la séquence.
+
+\subsubsection{L'outil \texttt{range()}}
+
+Génère une séquence de nombres entiers. Idéal pour répéter une action un nombre de fois précis.
+
+\begin{itemize}
+\item \texttt{range(fin)} : De \texttt{0} jusqu'à \texttt{fin - 1}.
+\item \texttt{range(début, fin)} : De \texttt{début} jusqu'à \texttt{fin - 1}.
+\item \texttt{range(début, fin, pas)} : De \texttt{début} jusqu'à \texttt{fin - 1}, en avançant selon le \texttt{pas}.
+\end{itemize}
+
+\subsubsection{Mots-clés de Contrôle}
+
+Ces mots-clés s'utilisent à l'intérieur du bloc indenté des boucles \texttt{for} ou \texttt{while} (souvent combinés avec un \texttt{if}).
+
+\begin{itemize}
+\item \texttt{break} : Arrête l'itération actuelle et sort définitivement de la boucle entière.
+\item \texttt{pass} : Ne fait rien (bien visuelment)
+\end{itemize}

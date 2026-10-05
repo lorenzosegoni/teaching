@@ -1,0 +1,34 @@
+\subsection{\texttt{Matplotlib}}
+
+Le module est toujours importé via \texttt{import matplotlib.pyplot as plt}.
+
+\subsubsection{Types de Graphiques Principaux (Initialisation)}
+
+Ces fonctions tracent les données sur la figure active. Elles acceptent toutes un argument optionnel \texttt{label=[texte]} utile pour générer la légende.
+
+\begin{itemize}
+\item \texttt{plt.plot([x], [y])} : Courbe reliant les points (Graphique linéaire).
+\item \texttt{plt.scatter([x], [y])} : Nuage de points (Points indépendants).
+\item \texttt{plt.bar([x], [hauteurs])} : Diagramme en barres verticales.
+\item \texttt{plt.hist([données], bins=[entier])} : Histogramme (Répartition des données dans des intervalles/bacs)
+\item \texttt{plt.pie([valeurs], labels=[étiquettes])} : Diagramme circulaire (Camembert)
+\end{itemize}
+
+\subsubsection{Habillage et Annotations}
+
+Ces fonctions s'appliquent au graphique actif pour lui ajouter du contexte et des informations:
+
+\begin{itemize}
+\item \texttt{plt.title([texte])} : Ajoute un titre principal au-dessus du graphique.
+\item \texttt{plt.xlabel([texte])} \texttt{plt.ylabel([texte])} : Ajoute un titre à l'axe des abscisses
+\item \texttt{plt.xlim([min], [max])} \texttt{plt.ylim([min], [max])} : Force les limites d'affichage des axes
+\item \texttt{plt.legend()} : Affiche la légende (nécessite d'avoir renseigné l'argument \texttt{label=})
+\end{itemize}
+
+\subsubsection{Final}
+
+Obligatoire: Calcule le rendu final et ouvre la fenêtre d'affichage du graphique.
+
+\begin{verbatim}
+plt.show()
+\end{verbatim}
