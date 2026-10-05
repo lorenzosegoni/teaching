@@ -6,7 +6,7 @@
 #La fonction mystere(parametre) calcule et renvoie la valeur minimale présente dans la LISTE parametre.
 '''
 
-## Question &b
+## Question 1b
 
 def indice_minimum(maliste):
     ind_min = 0
