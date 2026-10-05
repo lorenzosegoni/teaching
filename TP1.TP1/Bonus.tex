@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=2.5cm}
+
+\title{TP Informatique : Approximation de $\pi$}
+\author{Correction}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Approximation de $\pi$}
+
+On considère les suites couplées $(u(k))_{k \in \mathbb{N}}$ et $(v(k))_{k \in \mathbb{N}}$ définies par :
+
+$$
+\begin{cases}
+u(0) = 1 \\
+v(0) = 2 \\
+u(k+1) = \dfrac{2\,u(k)\,v(k)}{u(k) + v(k)} \\
+v(k+1) = \sqrt{u(k+1)\,v(k)}
+\end{cases}
+$$
+
+On admet que $v(k) \xrightarrow[k \to +\infty]{} \dfrac{\sqrt{27}}{\pi}$.
+
+\subsection*{Question 1}
+Écrire un programme renvoyant pour un entier $N$ l'approximation du nombre $\pi$ obtenue à partir de la valeur de $v(N)$.
+
+\subsubsection*{Correction 1}
+Pour calculer $v(N)$, on utilise une boucle bornée en mettant à jour simultanément ou séquentiellement les variables $u$ et $v$. Attention à bien calculer le nouveau $u$ avant d'évaluer le nouveau $v$.
+
+\begin{verbatim}
+from math import sqrt
+
+def approx_pi_rang(N):
+    u = 1
+    v = 2
+    for k in range(N):
+        u = (2 * u * v) / (u + v)
+        v = sqrt(u * v)
+    return sqrt(27) / v
+\end{verbatim}
+
+\subsection*{Question 2}
+Écrire un programme renvoyant pour un réel $\epsilon > 0$ l'approximation de $\pi$ obtenue à partir de la valeur $v(n_0)$, où $n_0$ est le premier entier tel que :
+
+$$
+\left| \frac{u(n_0) - v(n_0)}{u(n_0) + v(n_0)} \right| < \epsilon
+$$
+
+\subsubsection*{Correction 2}
+On utilise une boucle non bornée (\texttt{while}) qui s'arrête dès que la condition d'écart relatif est satisfaite.
+
+\begin{verbatim}
+from math import sqrt
+
+def approx_pi_precision(epsilon):
+    u = 1
+    v = 2
+    while abs((u - v) / (u + v)) >= epsilon:
+        u = (2 * u * v) / (u + v)
+        v = sqrt(u * v)
+    return sqrt(27) / v
+\end{verbatim}
+
+\end{document}
