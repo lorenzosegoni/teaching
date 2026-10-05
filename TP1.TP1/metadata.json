@@ -1,0 +1,10 @@
+{
+  "nom": "TP1",
+  "semestre": "1",
+  "resume": "TP d'introduction et de révision des types fondamentaux de Python (booléens, chaînes de caractères, listes), manipulation des boucles et conditions sans fonctions préprogrammées, notions de mutabilité et d'algorithmes en place.",
+  "fichiers": [
+    {"nom": "TP", "fichier": "TP1.pdf"},
+    {"nom": "Correction", "fichier": "TP1Correction.py"},
+    {"nom": "Bonus", "fichier": "Bonus.pdf"}
+  ]
+}
